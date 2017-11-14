@@ -14,6 +14,7 @@
 		ECB3EDD31FBB1DC200AFCAD4 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3EDD21FBB1DC200AFCAD4 /* PictureCell.swift */; };
 		ECB3EDD61FBB1EE000AFCAD4 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3EDD51FBB1EE000AFCAD4 /* UIView+Constraints.swift */; };
 		ECB3EDD91FBB1FA800AFCAD4 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3EDD81FBB1FA800AFCAD4 /* ImageService.swift */; };
+		ECB3EDDB1FBB290500AFCAD4 /* ScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB3EDDA1FBB290500AFCAD4 /* ScrollController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ECB3EDD21FBB1DC200AFCAD4 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		ECB3EDD51FBB1EE000AFCAD4 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		ECB3EDD81FBB1FA800AFCAD4 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		ECB3EDDA1FBB290500AFCAD4 /* ScrollController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				ECB3EDBE1FBB145A00AFCAD4 /* MainController.swift */,
+				ECB3EDDA1FBB290500AFCAD4 /* ScrollController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				ECB3EDBF1FBB145A00AFCAD4 /* MainController.swift in Sources */,
 				ECB3EDBD1FBB145900AFCAD4 /* AppDelegate.swift in Sources */,
+				ECB3EDDB1FBB290500AFCAD4 /* ScrollController.swift in Sources */,
 				ECB3EDD31FBB1DC200AFCAD4 /* PictureCell.swift in Sources */,
 				ECB3EDD91FBB1FA800AFCAD4 /* ImageService.swift in Sources */,
 				ECB3EDD61FBB1EE000AFCAD4 /* UIView+Constraints.swift in Sources */,

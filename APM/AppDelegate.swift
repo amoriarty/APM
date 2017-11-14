@@ -13,12 +13,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		let layout = UICollectionViewFlowLayout()
-		let controller = MainController(collectionViewLayout: layout)
+//		let layout = UICollectionViewFlowLayout()
+//		let controller = MainController(collectionViewLayout: layout)
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = UINavigationController(rootViewController: controller)
+		window?.rootViewController = UINavigationController(rootViewController: MainController())
 		return true
 	}
 

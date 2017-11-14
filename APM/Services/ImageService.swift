@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageService: NSObject {
+class ImageService {
 	static let shared = ImageService()
 	private let cache = NSCache<NSString, UIImage>()
 
