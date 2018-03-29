@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageService {
+final class ImageService {
 	static let shared = ImageService()
 	private let cache = NSCache<NSString, UIImage>()
 
@@ -20,18 +20,15 @@ class ImageService {
 			completion(cached)
 			return
 		}
-		DispatchQueue.global(qos: qos).async {
-			guard let data = try? Data(contentsOf: url) else {
-				DispatchQueue.main.async { completion(nil) }
-				return
-			}
-			guard let image = UIImage(data: data) else {
+        
+		DispatchQueue.global(qos: qos).async { [unowned self] in
+            guard let data = try? Data(contentsOf: url), let image = UIImage(data: data) else {
 				DispatchQueue.main.async { completion(nil) }
 				return
 			}
 			
+            self.cache.setObject(image, forKey: NSString(string: link))
 			DispatchQueue.main.async { completion(image) }
-			self.cache.setObject(image, forKey: NSString(string: link))
 		}
 	}
 }

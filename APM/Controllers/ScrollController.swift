@@ -8,13 +8,15 @@
 
 import UIKit
 
-class ScrollController: UIViewController, UIScrollViewDelegate {
-	var minimumZoom: CGFloat {
+final class ScrollController: UIViewController {
+    private let scrollView = UIScrollView()
+    
+	private var minimumZoom: CGFloat {
 		guard let image = image else { return 0 }
 		return min(view.frame.width / image.size.width, view.frame.height / image.size.height)
 	}
 	
-	var image: UIImage? {
+    var image: UIImage? {
 		didSet {
 			picture.image = image
 			scrollView.contentSize = image?.size ?? .zero
@@ -24,16 +26,9 @@ class ScrollController: UIViewController, UIScrollViewDelegate {
 		}
 	}
 	
-	let picture: UIImageView = {
+	private let picture: UIImageView = {
 		let view = UIImageView()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.contentMode = .scaleAspectFit
-		return view
-	}()
-	
-	let scrollView: UIScrollView = {
-		let view = UIScrollView()
-		view.translatesAutoresizingMaskIntoConstraints = false
 		return view
 	}()
 	
@@ -43,17 +38,12 @@ class ScrollController: UIViewController, UIScrollViewDelegate {
 		view.addSubview(scrollView)
 		scrollView.addSubview(picture)
 		scrollView.delegate = self
-		setupLayouts()
+		_ = scrollView.fill(view.safeAreaLayoutGuide)
 	}
-	
-	func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-		return picture
-	}
-	
-	private func setupLayouts() {
-		_ = scrollView.constraint(.top, to: view)
-		scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-		scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-		scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-	}
+}
+
+extension ScrollController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return picture
+    }
 }

@@ -8,13 +8,25 @@
 
 import UIKit
 
-class PictureCell: UICollectionViewCell {
+protocol PictureCellDelegate: class {
+    func failedLoading(_ link: String)
+}
+
+final class PictureCell: UICollectionViewCell {
+    weak var delegate: PictureCellDelegate?
+    
 	var link: String? {
 		didSet {
 			guard let link = link else { return }
 			indicator.startAnimating()
-			ImageService.shared.get(image: link) { image in
-				self.indicator.stopAnimating()
+			ImageService.shared.get(image: link) { [unowned self] image in
+                self.indicator.stopAnimating()
+                
+                guard let image = image else {
+                    self.delegate?.failedLoading(link)
+                    return
+                }
+                
 				self.picture.image = image
 			}
 		}
